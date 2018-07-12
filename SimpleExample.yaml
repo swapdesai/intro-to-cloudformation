@@ -1,9 +1,18 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Metadata: 
+  License: Apache-2.0
+Description: A simple example to create a Cloud Formation stack to spin up an EC2 instance in Sydney region
 Resources:
   EC2Instance:
-    Type: AWS::EC2::Instance
+    Type: "AWS::EC2::Instance"
     Properties:
+      ImageId: "ami-33f92051"
       InstanceType: t2.micro
-      ImageId: ami-33f92051
       Tags:
         - Key: Name
           Value: A simple example
+Outputs:
+  InstanceID:
+    Description: The Instance ID
+    Value: 
+      Ref: EC2Instance
